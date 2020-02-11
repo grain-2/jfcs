@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<query name="cn.edu.jfcs.sys.Login.exeLogin"><![CDATA[
+		from Users where username=? and password=?
+	]]></query>
+
+	<query name="cn.edu.jfcs.sys.YearManager.setMaxMinYear"><![CDATA[
+			select min(nian),max(nian) from YearTeachUnit
+	]]></query>
+	
+	<query name="cn.edu.jfcs.ui.TeachUnitName.getTeachUnitName"><![CDATA[
+		from YearTeachUnit where nian=?
+	]]></query>
+	<query name="cn.edu.jfcs.sys.YearCombo.createControl"><![CDATA[
+		select distinct nian from YearTeachUnit order by nian desc
+	]]></query>
+	
+	<query name="cn.edu.jfcs.sys.GetCalcResult.GetCalcResult1"><![CDATA[
+		from Calcresult where nian=? and unitid=?
+	]]></query>
+	<query name="cn.edu.jfcs.sys.GetCalcResult.GetCalcResult2"><![CDATA[
+		from Calcresult where nian=?
+	]]></query>
+
+	<query name="cn.edu.jfcs.ui.TeachUnitClass.getCourse"><![CDATA[
+		from Course where nian=? and unitid=? order by coursetype,term
+	]]></query>
+
+	<query name="cn.edu.jfcs.ui.TeachUnitData.getTeachUnitData"><![CDATA[
+		 from YearTeachUnit where nian=?
+	]]></query>
+	
+	<query name="cn.edu.jfcs.ui.PublicDataEditor.getPubData"><![CDATA[
+		 from PubData where nian=?
+	]]></query>
+	
+	<query name="cn.edu.jfcs.sys.CalcMoney.calc.getUPCi"><![CDATA[
+		 select unitid,sum(nj*r1j),sum(nj*r1j*r2j*r3j),sum(nj*n2j*r1j*r2j*r3j) from Course where nian=? group by unitid
+	]]></query>
+	<query name="cn.edu.jfcs.sys.CalcMoney.calc.getPubData"><![CDATA[
+		 from PubData where nian=?
+	]]></query>
+	<query name="cn.edu.jfcs.sys.CalcMoney.calc.getYearTeachUnit"><![CDATA[
+		 from YearTeachUnit where nian=?
+	]]></query>
+	<query name="cn.edu.jfcs.sys.CalcMoney.saveCalcResult.updateCalcresult"><![CDATA[
+		update Calcresult set ui=?,pi=?,ci=?,ryjf=?, zhywf=? where nian=? and unitid=?
+	]]></query>
+	
+	<query name="cn.edu.jfcs.ui.StackedBarChart.getDataSet"><![CDATA[
+		from Calcresult where nian=?
+	]]></query>
+
+	<query name="cn.edu.jfcs.ui.HistoryData.getHistoryData"><![CDATA[
+		from Calcresult order by nian desc
+	]]></query>	
+
+	<query name="cn.edu.jfcs.ui.UserManagerDialog.getUserName"><![CDATA[
+		from Users
+	]]></query>	
+	<query name="cn.edu.jfcs.ui.UserManagerDialog.addNewUser"><![CDATA[
+		from Users where username=?
+	]]></query>	
+	
+	<query name="cn.edu.jfcs.actions.GetServerData.run.getLocalCourse"><![CDATA[
+		from Course where nian=?
+	]]></query>	
+
+	<query name="cn.edu.jfcs.actions.AddNewYear.run.getPreCalcresult"><![CDATA[
+		from Calcresult where nian=?
+	]]></query>	
+	<query name="cn.edu.jfcs.actions.AddNewYear.run.getPrePubdata"><![CDATA[
+		from PubData where nian=?
+	]]></query>	
+	<query name="cn.edu.jfcs.actions.AddNewYear.run.getPreYearTeachUnit"><![CDATA[
+		from YearTeachUnit where nian=?
+	]]></query>	
+	<query name="cn.edu.jfcs.actions.AddNewYear.run.getPrePubData"><![CDATA[
+		from PubData where nian=?
+	]]></query>	
+</hibernate-mapping>

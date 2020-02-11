@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.edu.jfcs.model">
+	<class name="Users" table="USERS">
+		<meta attribute="sync-DAO">false</meta>
+
+		<id name="id" type="integer" column="ID">
+			<generator class="identity" />
+		</id>
+
+		<property name="username" column="USERNAME" type="string"
+			not-null="true" length="8" />
+		<property name="password" column="PASSWORD" type="string"
+			not-null="true" length="8" />
+		<property name="usertag" column="USERTAG" type="string"
+			not-null="false" length="1" />
+	</class>
+</hibernate-mapping>

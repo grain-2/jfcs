@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- local connection properties -->
+		<property name="hibernate.connection.url">
+			jdbc:derby:/jfcsdb
+		</property>
+		<property name="hibernate.connection.driver_class">
+			org.apache.derby.jdbc.ClientDriver
+		</property>
+		<property name="hibernate.connection.username">app</property>
+		<property name="hibernate.connection.password">app</property>
+		<!-- property name="hibernate.connection.pool_size"></property -->
+		<!-- dialect for DB2 -->
+		<property name="dialect">
+			org.hibernate.dialect.DB2Dialect
+		</property>
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.transaction.factory_class">
+			org.hibernate.transaction.JDBCTransactionFactory
+		</property>
+
+		<property name="hibernate.jdbc.fetch_size">20</property>
+		<property name="hibernate.jdbc.batch_size">20</property>
+
+		<mapping resource="cn/edu/jfcs/sys/hql.hbm.xml" />
+		<mapping resource="cn/edu/jfcs/model/Users.hbm.xml" />
+		<mapping resource="cn/edu/jfcs/model/Teachunit.hbm.xml" />
+		<mapping resource="cn/edu/jfcs/model/Yearteachunit.hbm.xml" />
+		<mapping resource="cn/edu/jfcs/model/Calcresult.hbm.xml" />
+		<mapping resource="cn/edu/jfcs/model/Course.hbm.xml" />
+		<mapping resource="cn/edu/jfcs/model/Pubdata.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

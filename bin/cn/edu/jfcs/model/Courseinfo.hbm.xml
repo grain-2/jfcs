@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.edu.jfcs.model">
+	<class name="CourseInfo" table="courseinfo" dynamic-insert="true">
+		<meta attribute="sync-DAO">false</meta>
+		<id name="id" type="integer" column="id">
+			<generator class="identity" />
+		</id>
+
+		<property name="nian" column="nian" type="integer" not-null="true"
+			length="4" />
+		<property name="term" column="term" type="string" not-null="true"
+			length="1" />
+		<property name="unitid" column="unitid" type="string"
+			not-null="true" length="2" />
+		<property name="courseid" column="courseid" type="string"
+			not-null="true" length="8" />
+		<property name="coursename" column="coursename" type="string"
+			not-null="true" length="40" />
+		<property name="coursetype" column="coursetype" type="string"
+			not-null="true" length="1" />
+		<property name="classname" column="classname" type="string"
+			not-null="true" length="40" />
+		<property name="nj" column="nj" type="integer" not-null="true"
+			length="6" />
+		<property name="n2j" column="n2j" type="integer" not-null="true"
+			length="4" />
+	</class>
+</hibernate-mapping>

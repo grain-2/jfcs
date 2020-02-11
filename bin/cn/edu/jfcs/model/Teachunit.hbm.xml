@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.edu.jfcs.model">
+	<class
+		name="TeachUnit"
+		table="TEACHUNIT"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="id"
+			type="integer"
+			column="ID"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="unitid"
+			column="UNITID"
+			type="string"
+			not-null="true"
+			length="8"
+		/>
+		<property
+			name="unitname"
+			column="UNITNAME"
+			type="string"
+			not-null="true"
+			length="8"
+		/>
+	</class>	
+</hibernate-mapping>

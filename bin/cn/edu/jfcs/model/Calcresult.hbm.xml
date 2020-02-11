@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.edu.jfcs.model">
+	<class name="Calcresult" table="CALCRESULT" dynamic-insert="true">
+		<meta attribute="sync-DAO">false</meta>
+
+		<id name="id" type="integer" column="ID">
+			<generator class="identity" />
+		</id>
+
+		<property name="nian" column="NIAN" type="integer" not-null="true"
+			length="10" />
+		<property name="unitid" column="UNITID" type="string"
+			not-null="true" length="8" />
+		<property name="ui" column="UI" type="float" not-null="true"
+			length="10" />
+		<property name="pi" column="PI" type="float" not-null="true"
+			length="10" />
+		<property name="ci" column="CI" type="float" not-null="true"
+			length="10" />
+		<property name="ryjf" column="RYJF" type="float" not-null="true"
+			length="10" />
+		<property name="zhywf" column="ZHYWF" type="float" not-null="true"
+			length="10" />
+		<many-to-one name="teachunit" class="cn.edu.jfcs.model.TeachUnit"
+			update="false" insert="false" column="unitid" lazy="false" />
+		<sql-insert>insert into Calcresult(nian,unitid) values(?,?)</sql-insert>
+	</class>
+</hibernate-mapping>
